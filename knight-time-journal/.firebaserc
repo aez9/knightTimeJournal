@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "knighttimejournal": {
+      "hosting": {
+        "knight-time-journal": [
+          "knighttimejournal"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "knighttimejournal"
+  }
+}

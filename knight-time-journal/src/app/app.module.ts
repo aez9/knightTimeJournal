@@ -14,6 +14,10 @@ import { ColorPickerModule }  from 'ngx-color-picker';
 import { FormsModule }        from '@angular/forms';
 
 import { ActiveEntryComponent } from './components/active-entry/active-entry.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { ActiveEntryComponent } from './components/active-entry/active-entry.com
     MatSliderModule,
     MatCardModule,
     ColorPickerModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

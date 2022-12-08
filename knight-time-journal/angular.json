@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "knight-time-journal:build:production",
+            "firebaseProject": "knighttimejournal",
+            "firebaseHostingSite": "knighttimejournal"
+          }
         }
       }
     }
