@@ -1,25 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
 
-.mat-raised-button.top{
-    width: 46%;
-    color: #f0fff3;
-    background-color: #838bfa;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.mat-raised-button.bottom{
-    width: 46%;
-    color: #f0fff3;
-    background-color: #b3b7ee;
+
+.mat-raised-button.top {
+  width: 46%;
+  color: #f0fff3;
+  background-color: #838bfa;
 }
+
+.mat-raised-button.bottom {
+  width: 46%;
+  color: #f0fff3;
+  background-color: #b3b7ee;
+}
+
+.mat-button-wrapper {
+  max-width: 100%;
+  word-break: break-all;
+  overflow: hidden;
+}
+
 .mat-flat-button {
-    width: 80%;
-    border-width: 5px;
-    text-align: center;
-  }
+  width: 80%;
+  height: 6vh;
+  border-width: 5px;
+  text-align: center;
+  position: relative;
+}
 
-.mat-slider{
+.mat-slider {
   position: relative;
   bottom: 3vh;
   width: 50%;

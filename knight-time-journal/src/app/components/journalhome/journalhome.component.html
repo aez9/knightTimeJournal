@@ -5,25 +5,19 @@
 <div class="sidebar">
     <h2 id="styles-header">Styles:</h2>
     <h3 class="style-options">Background Color:</h3>
-    <input class="colorPicker" 
-        [(colorPicker)]="bgColor" 
-        [style.background]="bgColor" 
-        (colorPickerChange)="setColor()" 
-    />
+    <input class="colorPicker" [(colorPicker)]="bgColor" [style.background]="bgColor"
+        (colorPickerChange)="setColor()" />
     <h3 class="style-options">Text Color:</h3>
-    <input class="colorPicker" 
-        [(colorPicker)]="activeText" 
-        [style.background]="activeText" 
-        (colorPickerChange)="setTextColor()"
-    />
+    <input class="colorPicker" [(colorPicker)]="activeText" [style.background]="activeText"
+        (colorPickerChange)="setTextColor()" />
     <h3 class="style-options">Text Font:</h3>
-    <div class="fontButtons">      
-    <button mat-flat-button class="fontButton">Times New Roman</button>
-    
-    <button mat-flat-button class="fontButton">Arial</button>
-    
-    <button mat-flat-button class="fontButton">Sans Serif</button>
-    </div> 
+    <div class="fontButtons">
+        <button mat-flat-button class="fontButton">Times New Roman</button>
+
+        <button mat-flat-button class="fontButton">Arial</button>
+
+        <button mat-flat-button class="fontButton">Sans Serif</button>
+    </div>
     <div id="text-size">
         <h3 class="style-options">Text Size:</h3>
         <mat-slider id="text-slider" min="12" max="32" step="1" value="1" thumbLabel></mat-slider>
@@ -31,5 +25,6 @@
 </div>
 <div class="entries">
     <app-active-entry></app-active-entry>
+
     <app-active-entry></app-active-entry>
 </div>

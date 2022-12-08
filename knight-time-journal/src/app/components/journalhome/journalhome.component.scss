@@ -1,42 +1,50 @@
-.header{
+.header {
   position: sticky;
   top: 0px;
   background-color: #4A4E69;
   color: #FBF9FF;
   height: 15%;
-  overflow-x: hidden;
+  z-index: 3;
+  width: 100%;
 }
-#home-title{
+
+#home-title {
   font-size: 8vh;
   position: relative;
   top: 25%;
   left: 3%;
 }
-.colorPicker{
+
+.colorPicker {
   width: 75%;
   border-radius: 5px;
   position: relative;
   bottom: 2.5vh;
 }
-#styles-header{
+
+#styles-header {
   padding: 5%;
   text-decoration: underline;
 }
-.sidebar{
-  position: sticky;
+
+.sidebar {
+  position: absolute;
   top: 0px;
+  margin-top: 14vh;
   background-color: #9395D3;
   color: #FBF9FF;
   width: 15%;
   height: 85%;
   text-align: center;
-  // overflow-x: hidden;
+  overflow-x: hidden;
 }
-.entries{
+
+.entries {
   // display: none;
-  width: 85%;
-  position: relative;
-  background-color: #B3B7EE;
+  width: 80%;
+  position: sticky;
+
+  margin-left: 20%;
   color: #FBF9FF;
   // justify-content: center;
   // align-items: center;
@@ -44,13 +52,13 @@
   overflow-x: hidden;
 }
 
-#text-size{
-  position: absolute;
-  bottom: 0%;
-  left: 15%;
+#text-size {
+  position: relative;
+  margin-left: 0vw;
+  margin-bottom: 15vh;
 }
 
-.fontButton{
+.fontButton {
   border: solid;
   margin-top: 3px;
   border-radius: 10% / 25%;
