@@ -1,0 +1,14 @@
+
+<mat-card id="card">
+    <mat-card-header>
+      <mat-card-title id="text">
+        Title Your Entry:
+        <input [(ngModel)]="title"placeholder="Title" >
+      </mat-card-title>
+    </mat-card-header>
+        <hr>
+    <mat-card-content id="center">
+        <input id="content" [(ngModel)]="entry" placeholder="Type your thoughts here...">
+    </mat-card-content>
+    <button mat-raised-button (click)="onSave()">Save</button>
+  </mat-card>

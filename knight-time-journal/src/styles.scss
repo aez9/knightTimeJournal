@@ -2,3 +2,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-raised-button.top{
+    width: 46%;
+    color: #f0fff3;
+    background-color: #838bfa;
+}
+.mat-raised-button.bottom{
+    width: 46%;
+    color: #f0fff3;
+    background-color: #b3b7ee;
+}
+.mat-flat-button {
+    width: 80%;
+    border-width: 5px;
+    text-align: center;
+  }
+
+.mat-slider{
+  position: relative;
+  bottom: 3vh;
+  width: 50%;
+}
