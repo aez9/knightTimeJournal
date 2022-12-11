@@ -1,0 +1,54 @@
+#card {
+    // max-width: 50vw; //maximum width in vw
+    // min-width: 250px; //minimum width in pixels
+    width: 60vw;
+    min-width: 400px;
+    height: 35vh;
+    min-height: 150px;
+    border-radius: 20px;
+    border: 6px solid;
+    border-color: 'black';
+    margin: 5px;
+}
+
+#text {
+    display: center;
+
+}
+
+#content {
+    width: 50vw;
+    min-width: 400px;
+    height: 17vh;
+    min-height: 50px;
+    text-align: left;
+
+}
+
+#delete {
+    margin-left: 90%;
+}
+
+textarea {
+    resize: none;
+    font-family: Arial;
+    color: #333;
+    width: 90%;
+    max-width: 90%;
+
+    height: 30%;
+
+}
+
+#entryArea {
+    margin-top: 2vh;
+    height: 20vh;
+    margin-bottom: 1vh;
+    width: 55vw;
+
+    margin-bottom: 1.5%;
+
+
+
+
+}

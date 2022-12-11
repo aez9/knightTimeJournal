@@ -21,6 +21,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PastEntriesComponent } from './components/past-entries/past-entries.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     RegisterComponent,
     JournalhomeComponent,
     ActiveEntryComponent,
+    PastEntriesComponent,
   ],
   imports: [
     BrowserModule,
