@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-active-entry',
@@ -15,8 +15,10 @@ export class ActiveEntryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSave(){
+  @Output() result: EventEmitter<string> = new EventEmitter<string>();
 
+  onSave() {
+    this.result.emit(this.entry);
   }
 
 }
