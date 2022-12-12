@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
   }
   resetPassword(): void {
     if (!this.user.email) {
-      return; // put up an alert or something.
-      alert("Fuck off");
+      console.log("no user log in");
+      return;
     }
     this.authSvc.resetPassword(this.user.email);
   }

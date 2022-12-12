@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import 'firebase/auth';
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore';
+
 @Injectable({
   providedIn: 'root'
 })

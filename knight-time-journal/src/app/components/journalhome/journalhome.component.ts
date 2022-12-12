@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface JournalDoc {
@@ -10,6 +12,7 @@ interface JournalDoc {
   timestamp: firebase.default.firestore.Timestamp;
   title?: string;
 }
+
 @Component({
   selector: 'app-journalhome',
   templateUrl: './journalhome.component.html',
@@ -39,7 +42,7 @@ export class JournalhomeComponent implements OnInit {
     console.log(localStorage.getItem('activeText'));
   }
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private authService: AuthService) {
     db.collection<JournalDoc>('/journalContent').valueChanges().subscribe(result => {
       if (result) {
         this.FirestoreRec = result;
@@ -53,6 +56,8 @@ export class JournalhomeComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
+  logOut(){
+    this.authService.logoutUser() 
+  }
 }
 

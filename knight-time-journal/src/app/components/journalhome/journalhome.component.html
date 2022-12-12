@@ -29,9 +29,9 @@
 
     <app-active-entry></app-active-entry>
     <div *ngFor="let obj of FirestoreRec">
-        <app-past-entries pastEntry={{obj.content}} entryTitle={{ obj.title }}></app-past-entries>
+        <app-past-entries pastEntry={{obj.content}} entryTitle={{obj.title}}></app-past-entries>
     </div>
 
 </div>
-
+<button (click)="logOut()">log out</button>
 </html>
