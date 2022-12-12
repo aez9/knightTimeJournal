@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/services/auth.service';
 
 interface JournalDoc {
   backColor: string;
@@ -26,7 +27,7 @@ export class AppComponent {
   public textSize = "";
   public title = "";
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private AuthService: AuthService) {
     db.collection<JournalDoc>('/journalContent').valueChanges().subscribe(result => {
       if (result) {
         this.FirestoreRec = result;
@@ -38,6 +39,7 @@ export class AppComponent {
       backColor: this.backColor, content: this.content, fontColor: this.content, fontType: this.fontType, textSize: this.textSize, timestamp: new Date(), title: this.title
     });
   }
+
 }
 
 

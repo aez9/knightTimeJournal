@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { JournalhomeComponent } from './components/journalhome/journalhome.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'journalhome', component: JournalhomeComponent },
+  { path: 'journalhome', component: JournalhomeComponent, canActivate: [AuthGuard] },
   // otherwise redirect to home
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'login' },
 
 ];
 
