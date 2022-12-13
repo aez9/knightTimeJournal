@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface User {
   email: string;
@@ -21,11 +22,15 @@ export class RegisterComponent implements OnInit {
 
   public loading = false;
 
-  constructor(private authSvc: AuthService,
-    private router: Router,) { }
+  constructor( 
+    private authSvc: AuthService,
+    private router: Router,
+    private db: AngularFirestore) { }
 
   ngOnInit(): void {
   }
+  
+  public email = this.user.email;
 
   async createAccount(): Promise<void> {
     this.loading = true;
@@ -33,10 +38,12 @@ export class RegisterComponent implements OnInit {
       await this.authSvc.signupUser(this.user.email,
         this.user.password);
       //create new user collection
+      const result = await this.db.collection
+      alert("Account succesfuly created!");
       this.router.navigateByUrl('login');
     } catch (error) {
       this.loading = false;
-      alert("Fuck off");
+      alert("Account associated with this email already exist!");
     }
 
   }

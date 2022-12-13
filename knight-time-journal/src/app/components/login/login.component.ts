@@ -5,6 +5,8 @@ import 'firebase/firestore';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
+
+
 interface User {
   email: string;
   password: string;
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  public showPassword = false;  
   public loading = false;
 
   constructor(
@@ -39,19 +42,15 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('journalhome');
     } catch (error) {
       this.loading = false;
-      alert("Fuck off");
+      alert("your email does not exist or your password is wrong");
     }
   }
-  resetPassword(): void {
-    if (!this.user.email) {
-      console.log("no user log in");
-      return;
-    }
-    this.authSvc.resetPassword(this.user.email);
-  }
+
   registerBtn() {
     this.router.navigateByUrl('register');
   }
-
+  resetPass() {
+    this.router.navigateByUrl('resetPass')
+  }
 
 }

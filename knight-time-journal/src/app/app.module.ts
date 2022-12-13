@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { FormsModule } from '@angular/forms';
 
-import { ActiveEntryComponent } from './components/active-entry/active-entry.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -22,6 +21,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PastEntriesComponent } from './components/past-entries/past-entries.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { PastEntriesComponent } from './components/past-entries/past-entries.com
     LoginComponent,
     RegisterComponent,
     JournalhomeComponent,
-    ActiveEntryComponent,
     PastEntriesComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

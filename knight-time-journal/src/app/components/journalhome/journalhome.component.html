@@ -1,37 +1,52 @@
-<html id="page">
+<div id="page">
 <header class="header">
     <h1 id="home-title">Knight Time Journal</h1>
+    <div class="loggedin">You are currently logged in with {{email}} <button (click)="logOut()">log out</button></div>
 </header>
 
 <div class="sidebar">
     <h2 id="styles-header">Styles:</h2>
     <h3 class="style-options">Background Color:</h3>
     <input class="colorPicker" [(colorPicker)]="bgColor" [style.background]="bgColor"
-        (colorPickerChange)="setColor()" />
+        (colorPickerChange)="setColor()" [cpOutputFormat]="'rgba'" />
     <h3 class="style-options">Text Color:</h3>
     <input class="colorPicker" [(colorPicker)]="activeText" [style.background]="activeText"
-        (colorPickerChange)="setTextColor()" />
+        (colorPickerChange)="setTextColor()" [cpOutputFormat]="'rgba'" />
     <h3 class="style-options">Text Font:</h3>
     <div class="fontButtons">
-        <button mat-flat-button class="fontButton">Times New Roman</button>
+        <button mat-flat-button class="fontButton" (click)="setFont1()">Times New Roman</button>
 
-        <button mat-flat-button class="fontButton">Arial</button>
+        <button mat-flat-button class="fontButton" (click)="setFont2()">Arial</button>
 
-        <button mat-flat-button class="fontButton">Sans Serif</button>
+        <button mat-flat-button class="fontButton" (click)="setFont3()">Sans Serif</button>
     </div>
     <div id="text-size">
         <h3 class="style-options">Text Size:</h3>
-        <mat-slider id="text-slider" min="12" max="32" step="1" value="1" thumbLabel></mat-slider>
+        <mat-slider id="text-slider" min="12" max="32" step="1" value="1" thumbLabel (change)="sliderChanged($event)"></mat-slider>
     </div>
 </div>
 <div class="entries">
 
 
-    <app-active-entry></app-active-entry>
+    <div>
+        <mat-card id="card" [ngStyle]="{'background-color': bgColor}">
+            <mat-card-header>
+              <mat-card-title id="text">
+                Title Your Entry:
+                <input [(ngModel)]="title" placeholder="Title">
+              </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <mat-card-content id="center">
+              <textarea id="content" [ngStyle]="{'color': activeText, 'font-family':chosenFont, 'font-size': textSize}" [(ngModel)]="entry" placeholder="Type your thoughts here..."></textarea>
+            </mat-card-content>
+            <button id="save" mat-raised-button (click)="add()">Save</button>
+          </mat-card>
+    </div>
     <div *ngFor="let obj of FirestoreRec">
-        <app-past-entries pastEntry={{obj.content}} entryTitle={{obj.title}}></app-past-entries>
+        <app-past-entries pastEntry={{obj.content}} entryTitle={{obj.title}} fontColor={{obj.fontColor}} backColor={{obj.backColor}} textSize={{obj.textSize}} fontType={{obj.fontType}}>{{obj.timestamp.toDate() | date:"medium"}}</app-past-entries>
     </div>
 
 </div>
-<button (click)="logOut()">log out</button>
-</html>
+
+</div>
