@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { user } from '@angular/fire/auth';
 
 interface JournalDoc {
   backColor: string;
@@ -56,8 +57,8 @@ export class JournalhomeComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  logOut(){
-    this.authService.logoutUser() 
+  logOut() {
+    this.authService.logoutUser()
   }
 }
 

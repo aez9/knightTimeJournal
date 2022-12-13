@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
     try {
       await this.authSvc.signupUser(this.user.email,
         this.user.password);
+      //create new user collection
       this.router.navigateByUrl('login');
     } catch (error) {
       this.loading = false;
