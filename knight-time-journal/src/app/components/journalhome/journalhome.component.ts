@@ -10,6 +10,7 @@ interface JournalDoc {
   fontType: string;
   textSize: string;
   timestamp: firebase.default.firestore.Timestamp;
+  userEmail: string;
   title?: string;
 }
 
@@ -27,8 +28,9 @@ export class JournalhomeComponent implements OnInit {
   public fontColor = "";
   public fontType = "";
   public textSize = '';
+  public userEmail = '';
   public timestamp!: firebase.default.firestore.Timestamp;
- 
+
   public fonts = {
     timenew: 'Times New Roman',
     arial: 'Arial',
@@ -36,10 +38,10 @@ export class JournalhomeComponent implements OnInit {
   };
 
   public chosenFont = "";
-  
+
   public bgColor = localStorage.getItem('bg-color') || '';
   public activeText = localStorage.getItem('activeText') || '';
-  
+
   @Input() entry: string | undefined;
   @Input() title: string | undefined;
 
@@ -61,7 +63,7 @@ export class JournalhomeComponent implements OnInit {
     this.chosenFont = this.fonts.sans;
   }
   constructor(private db: AngularFirestore, private authService: AuthService) {
-    db.collection<JournalDoc>('/journalContent', ref=>ref.orderBy("timestamp")).valueChanges().subscribe(result => {
+    db.collection<JournalDoc>('/journalContent', ref => ref.orderBy("timestamp")).valueChanges().subscribe(result => {
       if (result) {
         this.FirestoreRec = result;
       }
@@ -69,7 +71,7 @@ export class JournalhomeComponent implements OnInit {
   }
   async add() {
     const result = await this.db.collection('/journalContent').add({
-      backColor: this.bgColor, content: this.entry, fontColor: this.activeText, fontType: this.chosenFont, textSize: this.textSize, timestamp: new Date(), title: this.title
+      backColor: this.bgColor, content: this.entry, fontColor: this.activeText, fontType: this.chosenFont, textSize: this.textSize, timestamp: new Date(), title: this.title, userEmail: this.email
     });
   }
   ngOnInit(): void {

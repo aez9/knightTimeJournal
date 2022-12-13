@@ -1,10 +1,6 @@
 <div class="placement">
   <div>
-    <img
-      alt="image"
-      class="image"
-      src="assets/images/Knight Time Journal Icon.png"
-    />
+    <img alt="image" class="image" src="assets/images/Knight Time Journal Icon.png" />
 
     <h1 class="register-title">Welcome to Knight Time Journal</h1>
     <input class="input" placeholder="Email" [(ngModel)]="user.email" />
@@ -14,5 +10,7 @@
     <button mat-raised-button class="top" (click)="createAccount()">
       Sign Up
     </button>
+    <div>Already have an account?</div>
+    <button mat-raised-button class="bottom" (click)="backtoLogin()">Login</button>
   </div>
 </div>

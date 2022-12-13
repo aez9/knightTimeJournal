@@ -13,13 +13,15 @@ export class PastEntriesComponent implements OnInit {
   @Input() fontColor: string | undefined;
   @Input() fontType: string | undefined;
   @Input() textSize: string | undefined;
+  @Input() userEmail: string | undefined;
   @Input() timestamp: firebase.default.firestore.Timestamp | undefined;
 
 
 
 
-  constructor() { }
+  constructor() {
 
+  }
   ngOnInit(): void {
   }
 

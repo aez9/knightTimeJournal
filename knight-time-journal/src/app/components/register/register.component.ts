@@ -22,14 +22,14 @@ export class RegisterComponent implements OnInit {
 
   public loading = false;
 
-  constructor( 
+  constructor(
     private authSvc: AuthService,
     private router: Router,
     private db: AngularFirestore) { }
 
   ngOnInit(): void {
   }
-  
+
   public email = this.user.email;
 
   async createAccount(): Promise<void> {
@@ -46,5 +46,8 @@ export class RegisterComponent implements OnInit {
       alert("Account associated with this email already exist!");
     }
 
+  }
+  backtoLogin() {
+    this.router.navigateByUrl('login');
   }
 }

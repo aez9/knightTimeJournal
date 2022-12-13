@@ -3,16 +3,24 @@
   top: 0px;
   background-color: #4A4E69;
   color: #FBF9FF;
-  height: 15%;
+  height: 20%;
   z-index: 3;
   width: 100%;
+  height: 100px;
+
 }
 
 #home-title {
-  font-size: 8vh;
+  font-size: 7vh;
+  font-weight: bold;
   position: relative;
-  top: 25%;
+  top: 30%;
+  margin-top: 0%;
   left: 3%;
+}
+
+.loggedin {
+  margin-top: 45px;
 }
 
 .colorPicker {
@@ -44,7 +52,8 @@
   // display: none;
   width: 80%;
   position: sticky;
-
+  height: 100%;
+  margin-top: 5%;
   margin-left: 20%;
   color: #FBF9FF;
   // justify-content: center;
@@ -68,7 +77,8 @@
 #page {
   background-color: lightgray;
 }
-.loggedin{
+
+.loggedin {
   text-align: right;
   top: 40px;
 }
