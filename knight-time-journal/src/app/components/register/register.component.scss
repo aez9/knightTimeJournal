@@ -4,15 +4,18 @@
     align-items: center;
     text-align: center;
 }
-.image{
+
+.image {
     max-width: 15vw;
     min-width: 80px;
 }
-.register-title{
-    font-size: 5vh;
-}    
 
-.input{
+.register-title {
+    min-height: 18px;
+    min-width: 32px;
+}
+
+.input {
     max-width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -21,4 +24,3 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-

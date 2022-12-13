@@ -7,13 +7,14 @@
   z-index: 3;
   width: 100%;
   height: 100px;
-
+  overflow: hidden;
 }
 
 #home-title {
-  font-size: 7vh;
+  font-size: 42px;
   font-weight: bold;
   position: relative;
+  min-width: 700px;
   top: 30%;
   margin-top: 0%;
   left: 3%;
@@ -21,6 +22,12 @@
 
 .loggedin {
   margin-top: 45px;
+  min-width: 475px;
+}
+
+#logout-button {
+  margin-left: 5px;
+  padding: 0px;
 }
 
 .colorPicker {
@@ -43,36 +50,42 @@
   color: #FBF9FF;
   border-bottom-right-radius: 15px;
   width: 20%;
-  height: 100%;
+  height: 90 vh;
   text-align: center;
-  // overflow-x: hidden;
   z-index: 2;
+  overflow-y: scroll;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .entries {
-  // display: none;
   width: 75%;
   position: sticky;
   height: 100%;
   margin-top: 2%;
   margin-left: 25%;
   color: #FBF9FF;
-  // justify-content: center;
-  // align-items: center;
-  // text-align: center;
   overflow-x: hidden;
 }
 
 #text-size {
   position: relative;
   margin-left: 0vw;
-  margin-top: 45px;
+  margin-top: 5vh;
 }
 
 .fontButton {
   border: solid;
   margin-top: 3px;
+  width: 75%;
+  max-height: 40px;
+  margin-left: 5%;
   border-radius: 10% / 25%;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  white-space: pre-wrap !important;
 }
 
 #page {
@@ -80,35 +93,30 @@
 }
 
 .loggedin {
+  position: relative;
   text-align: right;
-  top: 40px;
+  bottom: 15%;
 }
 
 #card {
-  // max-width: 50vw; //maximum width in vw
-  // min-width: 250px; //minimum width in pixels
-  width: 60vw;
-  min-width: 400px;
-  height: 35vh;
-  min-height: 150px;
+  min-width: 20vw;
+  max-width: 60vw;
+  min-height: 30vh;
   border-radius: 20px;
-  border: 6px solid;
+  border: 3px solid;
   border-color: 'black';
-  margin: 5px;
+  margin-bottom: 3vh;
 }
 
 #text {
   display: center;
-
 }
 
 #content {
-  width: 50vw;
-  min-width: 400px;
-  height: 17vh;
-  min-height: 50px;
+  min-width: 98%;
+  border-color: white;
+  min-height: 15vh;
   text-align: left;
-
 }
 
 button {
@@ -121,7 +129,5 @@ textarea {
   color: #333;
   width: 90%;
   max-width: 90%;
-
   height: 30%;
-
 }

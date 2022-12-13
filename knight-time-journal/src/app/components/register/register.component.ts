@@ -32,6 +32,11 @@ export class RegisterComponent implements OnInit {
 
   public email = this.user.email;
 
+  /**
+   * createAccount() signs up 
+   * new users for DB to have 
+   * an area for their own entries
+   */
   async createAccount(): Promise<void> {
     this.loading = true;
     try {
@@ -43,10 +48,16 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('login');
     } catch (error) {
       this.loading = false;
-      alert("Account associated with this email already exist!");
+      alert("Error with inputed email address!");
     }
 
   }
+
+  /**
+   * reroutes to login page
+   * if users alreaady have 
+   * an account
+   */
   backtoLogin() {
     this.router.navigateByUrl('login');
   }

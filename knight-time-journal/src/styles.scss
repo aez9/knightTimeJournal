@@ -12,12 +12,14 @@ body {
 
 .mat-raised-button.top {
   width: 46%;
+  margin: 2vh;
   color: #f0fff3;
   background-color: #838bfa;
 }
 
 .mat-raised-button.bottom {
   width: 46%;
+  margin: 1vh;
   color: #f0fff3;
   background-color: #b3b7ee;
 }
@@ -30,7 +32,6 @@ body {
 
 .mat-flat-button {
   width: 80%;
-
   border-width: 5px;
   text-align: center;
   position: relative;
@@ -38,10 +39,17 @@ body {
   overflow-x: hidden !important;
 }
 
-.mat-slider {
+#text-slider {
   position: relative;
   bottom: 2vh;
-  width: 50%;
+  min-width: 50%;
+  margin-bottom: 30%;
+}
+
+#save {
+  position: absolute;
+  right: 2%;
+  bottom: 5%;
 }
 
 .back {

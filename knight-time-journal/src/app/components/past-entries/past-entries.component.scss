@@ -1,32 +1,17 @@
 #card {
-    // max-width: 50vw; //maximum width in vw
-    // min-width: 250px; //minimum width in pixels
-    width: 60vw;
-    min-width: 400px;
-    height: 35vh;
-    min-height: 150px;
+    min-width: 20vw;
+    max-width: 60vw;
+    min-height: 30vh;
+    max-height: 50vh;
     border-radius: 20px;
-    border: 6px solid;
+    border: 3px solid;
     border-color: 'black';
-    margin: 5px;
+    margin-bottom: 3vh;
+    overflow-y: hidden;
 }
 
 #text {
     display: center;
-    
-}
-
-#content {
-    width: 50vw;
-    min-width: 400px;
-    height: 17vh;
-    min-height: 50px;
-    text-align: left;
-
-}
-
-#delete {
-    margin-left: 90%;
 }
 
 textarea {
@@ -35,9 +20,29 @@ textarea {
     color: #333;
     width: 90%;
     max-width: 90%;
-
     height: 30%;
+}
 
+
+#content {
+    min-width: 98%;
+    border-color: white;
+    min-height: 15vh;
+    text-align: left;
+}
+
+#delete {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+}
+
+textarea {
+    resize: none;
+    font-family: Arial;
+    color: #333;
+    min-width: 98%;
+    height: 30%;
 }
 
 #entryArea {
@@ -52,6 +57,7 @@ textarea {
 
 
 }
+
 .linecolor {
     color: black;
 }

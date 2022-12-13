@@ -1,13 +1,22 @@
+<!-- Background style updated from user's choice -->
 <mat-card id="card" [ngStyle]="{'background-color': backColor}">
+
+    <!-- Title (with styles updated from user's choice) -->
     <mat-card-header>
         <mat-card-title id="text" [ngStyle]="{'color': fontColor, 'font-family': fontType, 'font-size': textSize}">
             {{entryTitle}}
         </mat-card-title>
     </mat-card-header>
+
     <hr class="linecolor">
+
+    <!-- Area to display user content and applied styles (from DB) -->
     <div id="entryArea">
         <mat-card-content id="center" [ngStyle]="{'color': fontColor, 'font-family': fontType, 'font-size': textSize}">
-            {{pastEntry}}
+            <textarea id="content"
+                [ngStyle]="{'color': fontColor, 'font-family': fontType, 'font-size': textSize, 'background-color':backColor, 'border-color': backColor}"
+                disabled>{{pastEntry}}</textarea>
         </mat-card-content>
     </div>
+
 </mat-card>

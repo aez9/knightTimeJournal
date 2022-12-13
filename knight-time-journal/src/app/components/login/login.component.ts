@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase/compat';
 import 'firebase/auth';
 import 'firebase/firestore';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-
-
 
 interface User {
   email: string;
@@ -23,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  public showPassword = false;  
+  public showPassword = false;
   public loading = false;
 
   constructor(
@@ -34,6 +31,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  /**
+   * On submit, authenticate 
+   * the user credentials and reroute
+   * to journal home page if credentials are confirmed
+   * 
+   * throws alert if credentials do not match any in database
+   */
   async onSubmit() {
     this.loading = true;
     try {
@@ -46,11 +50,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  /**
+   * Reroute to register page if 
+   * user does not have account
+   */
   registerBtn() {
     this.router.navigateByUrl('register');
   }
+
+  /**
+   * Reroute to resetPass page 
+   * if user forgot their password
+   */
   resetPass() {
     this.router.navigateByUrl('resetPass')
   }
-
 }
