@@ -30,15 +30,17 @@ body {
 
 .mat-flat-button {
   width: 80%;
-  height: 6vh;
+
   border-width: 5px;
   text-align: center;
   position: relative;
+  white-space: pre-wrap !important;
+  overflow-x: hidden !important;
 }
 
 .mat-slider {
   position: relative;
-  bottom: 3vh;
+  bottom: 2vh;
   width: 50%;
 }
 
@@ -48,4 +50,10 @@ body {
   width: 46%;
   color: #f0fff3;
   background-color: #b3b7ee;
+}
+
+hr {
+  border: 2.5px solid rgb(0, 0, 0);
+  background-color: black;
+  border-radius: 5px;
 }
