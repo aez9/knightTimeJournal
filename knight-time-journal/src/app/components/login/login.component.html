@@ -10,7 +10,12 @@
     </div>
     <input class="input" placeholder="Email" [(ngModel)]="user.email" />
     <br />
-    <input  class="input form-control" placeholder="Password" [(ngModel)]="user.password" />
+    <input
+      type="password"
+      class="input form-control"
+      placeholder="Password"
+      [(ngModel)]="user.password"
+    />
     <div>
       <a (click)="resetPass()">Forgot your password?</a>
     </div>
