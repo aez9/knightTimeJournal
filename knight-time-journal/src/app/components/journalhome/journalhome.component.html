@@ -1,74 +1,141 @@
 <div id="page">
-
-    <!-- Header for Title & "signed in as" -->
-    <header class="header">
-        <h1 id="home-title">Knight Time Journal</h1>
-        <div class="loggedin">You are currently logged in with {{email}}
-            <button id="logout-button" mat-raised-button (click)="logOut()">log out</button>
-        </div>
-    </header>
-
-    <!-- START of Sidebar to style each entry -->
-    <div class="sidebar">
-        <h2 id="styles-header">Styles:</h2>
-        <h3 class="style-options">Background Color:</h3>
-        <input class="colorPicker" [(colorPicker)]="bgColor" [style.background]="bgColor"
-            (colorPickerChange)="setColor()" [cpOutputFormat]="'rgba'" />
-        <h3 class="style-options">Text Color:</h3>
-        <input class="colorPicker" [(colorPicker)]="activeText" [style.background]="activeText"
-            (colorPickerChange)="setTextColor()" [cpOutputFormat]="'rgba'" />
-        <h3 class="style-options">Text Font:</h3>
-        <div class="fontButtons">
-            <button mat-flat-button class="fontButton" (click)="setFont1()">Times New Roman</button>
-            <button mat-flat-button class="fontButton" (click)="setFont2()">Arial</button>
-            <button mat-flat-button class="fontButton" (click)="setFont3()">Georgia</button>
-        </div>
-        <div id="text-size">
-            <h3 class="style-options">Text Size:</h3>
-            <mat-slider id="text-slider" min="12" max="32" step="1" value="1" thumbLabel
-                (change)="sliderChanged($event)"></mat-slider>
-        </div>
+  <!-- Header for Title & "signed in as" -->
+  <header class="header">
+    <h1 id="home-title">Knight Time Journal</h1>
+    <div class="loggedin">
+      You are currently logged in with {{ email }}
+      <button id="logout-button" mat-raised-button (click)="logOut()">
+        log out
+      </button>
     </div>
-    <!-- START of Sidebar to style each entry -->
+  </header>
 
-    <!-- START of active entry area (where the user makes new entries) -->
-    <div class="entries">
-        <div>
-            <mat-card id="card" [ngStyle]="{'background-color': bgColor}">
-                <mat-card-header>
-                    <mat-card-title id="text" [ngStyle]="{'color': activeText, 'font-family':chosenFont}">
-                        Title Your Entry:
-                        <input [(ngModel)]="title"
-                            [ngStyle]="{'color': activeText, 'font-family':chosenFont, 'font-size': textSize, 'background-color': bgColor, 'border-color': bgColor}"
-                            placeholder="Title">
-                    </mat-card-title>
-                </mat-card-header>
-                <hr>
-                <mat-card-content id="center">
-                    <textarea id="content"
-                        [ngStyle]="{'color': activeText, 'font-family':chosenFont, 'font-size': textSize, 'background-color': bgColor}"
-                        [(ngModel)]="entry" placeholder="Type your thoughts here..."></textarea>
-                </mat-card-content>
-                <button id="save" mat-raised-button (click)="confirmSave()"
-                    [ngStyle]="{'display': noSave}">Save</button>
-                <button id="confirm-save" mat-raised-button (click)="add()" [ngStyle]="{'display': confirm }">Confirm
-                    Save</button>
-                <button id="cancel-save" mat-raised-button (click)="cancelSave()"
-                    [ngStyle]="{'display': confirm}">Cancel</button>
-            </mat-card>
-        </div>
-        <!-- END of active entry area (where the user makes new entries) -->
-
-        <!-- START of past entries components (reads from DB -->
-        <div *ngFor="let obj of FirestoreRec">
-            <div *ngIf="this.email==obj.userEmail">
-                <app-past-entries pastEntry={{obj.content}} entryTitle={{obj.title}} fontColor={{obj.fontColor}}
-                    backColor={{obj.backColor}} textSize={{obj.textSize}} fontType={{obj.fontType}}
-                    userEmail={{obj.userEmail}}></app-past-entries>
-            </div>
-        </div>
-        <!-- END of past entries components (reads from DB -->
-
+  <!-- START of Sidebar to style each entry -->
+  <div class="sidebar">
+    <h2 id="styles-header">Styles:</h2>
+    <h3 class="style-options">Background Color:</h3>
+    <input
+      class="colorPicker"
+      [(colorPicker)]="bgColor"
+      [style.background]="bgColor"
+      (colorPickerChange)="setColor()"
+      [cpOutputFormat]="'rgba'"
+    />
+    <h3 class="style-options">Text Color:</h3>
+    <input
+      class="colorPicker"
+      [(colorPicker)]="activeText"
+      [style.background]="activeText"
+      (colorPickerChange)="setTextColor()"
+      [cpOutputFormat]="'rgba'"
+    />
+    <h3 class="style-options">Text Font:</h3>
+    <div class="fontButtons">
+      <button mat-flat-button class="fontButton" (click)="setFont1()">
+        Times New Roman
+      </button>
+      <button mat-flat-button class="fontButton" (click)="setFont2()">
+        Arial
+      </button>
+      <button mat-flat-button class="fontButton" (click)="setFont3()">
+        Georgia
+      </button>
     </div>
+    <div id="text-size">
+      <h3 class="style-options">Text Size:</h3>
+      <mat-slider
+        id="text-slider"
+        min="12"
+        max="32"
+        step="1"
+        value="1"
+        thumbLabel
+        (change)="sliderChanged($event)"
+      ></mat-slider>
+    </div>
+  </div>
+  <!-- START of Sidebar to style each entry -->
 
+  <!-- START of active entry area (where the user makes new entries) -->
+  <div class="entries">
+    <div>
+      <mat-card id="card" [ngStyle]="{ 'background-color': bgColor }">
+        <mat-card-header>
+          <mat-card-title
+            id="text"
+            [ngStyle]="{ color: activeText, 'font-family': chosenFont }"
+          >
+            Title Your Entry:
+            <input
+              [(ngModel)]="title"
+              [ngStyle]="{
+                color: activeText,
+                'font-family': chosenFont,
+                'font-size': textSize,
+                'background-color': bgColor,
+                'border-color': bgColor
+              }"
+              placeholder="Title"
+            />
+          </mat-card-title>
+        </mat-card-header>
+        <hr />
+        <mat-card-content id="center">
+          <textarea
+            id="content"
+            [ngStyle]="{
+              color: activeText,
+              'font-family': chosenFont,
+              'font-size': textSize,
+              'background-color': bgColor,
+              'border-color': bgColor
+            }"
+            [(ngModel)]="entry"
+            placeholder="Type your thoughts here..."
+          ></textarea>
+        </mat-card-content>
+        <button
+          id="save"
+          mat-raised-button
+          (click)="confirmSave()"
+          [ngStyle]="{ display: noSave }"
+        >
+          Save
+        </button>
+        <button
+          id="confirm-save"
+          mat-raised-button
+          (click)="add()"
+          [ngStyle]="{ display: confirm }"
+        >
+          Confirm Save
+        </button>
+        <button
+          id="cancel-save"
+          mat-raised-button
+          (click)="cancelSave()"
+          [ngStyle]="{ display: confirm }"
+        >
+          Cancel
+        </button>
+      </mat-card>
+    </div>
+    <!-- END of active entry area (where the user makes new entries) -->
+
+    <!-- START of past entries components (reads from DB -->
+    <div *ngFor="let obj of FirestoreRec">
+      <div *ngIf="this.email == obj.userEmail">
+        <app-past-entries
+          pastEntry="{{ obj.content }}"
+          entryTitle="{{ obj.title }}"
+          fontColor="{{ obj.fontColor }}"
+          backColor="{{ obj.backColor }}"
+          textSize="{{ obj.textSize }}"
+          fontType="{{ obj.fontType }}"
+          userEmail="{{ obj.userEmail }}"
+        ></app-past-entries>
+      </div>
+    </div>
+    <!-- END of past entries components (reads from DB -->
+  </div>
 </div>

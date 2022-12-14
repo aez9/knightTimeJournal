@@ -18,14 +18,14 @@ export class ResetPasswordComponent implements OnInit {
     email: '',
     password: '',
   };
-  constructor(    private authSvc: AuthService,
+  constructor(private authSvc: AuthService,
     private router: Router,) { }
 
   ngOnInit(): void {
   }
   resetPassword(): void {
     if (!this.user.email) {
-      console.log("no user log in");
+      alert("Please enter your email or check you entered it correctly");
       return;
     }
     alert("Check your email to get the link to reset your password");
